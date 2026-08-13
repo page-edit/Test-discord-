@@ -138,7 +138,7 @@
         .card-price.free-price { color: #00ff88; }
         .card-stats { display: flex; gap: 10px; }
         .card-stats span { display: flex; align-items: center; gap: 3px; font-size: 11px; }
-        .card-pay-btn { width: 100%; margin-top: 10px; background: linear-gradient(135deg, #ff6b9d, #c44569); color: #fff; border: none; border-radius: 10px; padding: 11px; font-size: 14px; font-weight:700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; transition: all 0.3s; font-family: inherit; }
+        .card-pay-btn { width: 100%; margin-top: 10px; background: linear-gradient(135deg, #ff6b9d, #c44569); color: #fff; border: none; border-radius: 10px; padding: 11px; font-size: 14px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; transition: all 0.3s; font-family: inherit; }
         .card-pay-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(255, 107, 157, 0.4); }
         .locked-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.75); backdrop-filter: blur(8px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; z-index: 10; }
         .locked-overlay i { font-size: 30px; color: #ff6b9d; animation: pulseGlow 2.4s ease-in-out infinite; }
@@ -348,6 +348,8 @@
                 verified: true,
                 initials: "SF",
                 gradient: "linear-gradient(135deg, #ff6b9d, #c44569)",
+                image: "IMG_8245.jpeg",
+                preview: "soumaya-preview.JPG",
                 featured: true,
                 posts: [
                     { title: "Rejoins mon Telegram privé", cat: "video", vip: true, alsoPhoto: true, telegram: true, price: "5.55EUR", likes: "1.8K", views: "39.4K" }
@@ -365,6 +367,8 @@
                 verified: true,
                 initials: "IM",
                 gradient: "linear-gradient(135deg, #7f5af0, #2cb67d)",
+                image: "imendz.JPG",
+                preview: "imendzpreview.JPG",
                 featured: true,
                 posts: [
                     { title: "Rejoins mon Telegram privé", cat: "video", vip: true, alsoPhoto: true, telegram: true, price: "5.55EUR", likes: "1.1K", views: "22.6K" }
@@ -381,6 +385,8 @@
                 verified: true,
                 initials: "L",
                 gradient: "linear-gradient(135deg, #ff9a3c, #ff5e7e)",
+                image: "Laila.jpg",
+                preview: "Laila.jpg",
                 featured: true,
                 posts: [
                     { title: "Rejoins mon Telegram privé", cat: "video", vip: true, alsoPhoto: true, telegram: true, price: "5.55EUR", likes: "960", views: "18.8K" }
@@ -455,9 +461,9 @@
                 const members = formatCount(c.members);
                 return (
                     '<div class="creator-card" onclick="openProfile(\'' + c.handle + '\')" role="button" tabindex="0">' +
-                        '<div class="creator-card-banner" style="background:' + c.gradient + ';">' +
+                        '<div class="creator-card-banner" style="background-image:url(\'' + c.image + '\'), ' + c.gradient + '; background-size:cover; background-position:center;">' +
                             (c.featured ? '<span class="creator-badge">Populaire</span>' : '') +
-                            '<div class="creator-card-avatar" style="background:rgba(0,0,0,0.25);">' + esc(c.initials) + '</div>' +
+                            '<div class="creator-card-avatar" style="background-image:url(\'' + c.image + '\'), ' + c.gradient + '; background-size:cover; background-position:center;"></div>' +
                         '</div>' +
                         '<div class="creator-card-body">' +
                             '<div class="creator-card-name">' + esc(c.name) + (c.flag ? ' <span class="flag">' + c.flag + '</span>' : '') +
@@ -497,10 +503,10 @@
                 '</nav>' +
 
                 '<section class="profile-hero">' +
-                    '<div class="profile-banner" style="background:' + c.gradient + ';"></div>' +
+                    '<div class="profile-banner" style="background-image:url(\'' + c.image + '\'), ' + c.gradient + '; background-size:cover; background-position:center;"></div>' +
                     '<div class="profile-container">' +
                         '<div class="profile-header">' +
-                            '<div class="profile-avatar" style="background:' + c.gradient + ';">' + esc(c.initials) + '</div>' +
+                            '<div class="profile-avatar" style="background-image:url(\'' + c.image + '\'), ' + c.gradient + '; background-size:cover; background-position:center;"></div>' +
                             '<div class="profile-info">' +
                                 '<div class="profile-name">' + esc(c.name) +
                                     (c.flag ? ' <span class="flag">' + c.flag + '</span>' : '') +
@@ -612,7 +618,7 @@
 
                 return (
                     '<div class="content-card" style="animation-delay:' + (i * 0.05) + 's;" role="button" tabindex="0"' + clickAction + '>' +
-                        '<div class="card-media" style="background:' + c.gradient + ';">' + mediaInner + '</div>' +
+                        '<div class="card-media" style="background-image:url(\'' + c.preview + '\'), ' + c.gradient + '; background-size:cover; background-position:center;">' + mediaInner + '</div>' +
                         info +
                     '</div>'
                 );
